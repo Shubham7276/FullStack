@@ -1,0 +1,30 @@
+{
+  "name": "todojs",
+  "version": "1.0.0",
+  "description": "simple MEAN stack TODO web app project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/He-Wolf/TodoJS.git"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "mongoose": "5.8.7",
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "jsonwebtoken": "8.5.1",
+    "body-parser": "1.19.0",
+    "passport": "0.4.1",
+    "passport-jwt": "4.0.0"
+  },
+  "author": "He-Wolf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/He-Wolf/TodoJS/issues"
+  },
+  "homepage": "https://github.com/He-Wolf/TodoJS#readme"
+}
