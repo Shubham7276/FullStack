@@ -5,6 +5,7 @@ import { TicketService } from '../_service/ticket.service';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dialog',
@@ -20,16 +21,18 @@ export class DialogComponent implements OnInit {
               private ticketService: TicketService,
               @Inject(MAT_DIALOG_DATA) public editdata:any, 
               private toastr:ToastrService,
-              private dialogRef:MatDialogRef<DialogComponent>
+              private dialogRef:MatDialogRef<DialogComponent>,
+              private pipe:DatePipe
               ) {
     
     
     this.model.Uname=authService.user.firstname + " " + authService.user.lastname
     this.model.Email=authService.user.email
     this.model.UpdateDate='No update'
-    this.model.CreatedDate=new Date().toLocaleDateString("fr-FR")
-    
-    
+    const now = Date.now();
+    const myFormattedDate = this.pipe.transform(now, 'dd/MM/yyyy  h:mm a');
+    this.model.CreatedDate=myFormattedDate
+ 
     if(this.editdata?._id){
       
       this.model.desc=this.editdata.desc
