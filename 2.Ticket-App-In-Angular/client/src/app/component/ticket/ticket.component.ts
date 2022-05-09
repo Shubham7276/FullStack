@@ -39,7 +39,10 @@ export class TicketComponent implements OnInit {
     this.authService.isloggedin=true
     this.authService.user=JSON.parse(localStorage.getItem('user')||"{}")
     this.email=authService.user.email
-    this.model.CreatedDate=new Date().toLocaleDateString("fr-FR")
+    const now = Date.now();
+    const myFormattedDate = this.pipe.transform(now, 'dd/MM/yyyy  h:mm a');
+    this.model.CreatedDate=myFormattedDate
+   
    }
 
    
