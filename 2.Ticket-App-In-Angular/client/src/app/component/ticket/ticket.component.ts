@@ -29,7 +29,6 @@ export class TicketComponent implements OnInit {
   model = new Ticket("","","","","","",true);
   email
   
-  
   constructor(private authService: AuthService, 
     @Optional() private dialogRef:MatDialogRef<DialogComponent>, 
     private dialog: MatDialog,
@@ -41,11 +40,6 @@ export class TicketComponent implements OnInit {
     this.authService.user=JSON.parse(localStorage.getItem('user')||"{}")
     this.email=authService.user.email
     this.model.CreatedDate=new Date().toLocaleDateString("fr-FR")
-    const now = Date.now();
-    const myFormattedDate = this.pipe.transform(now, 'short');
-    // console.log(myFormattedDate)
-    
-    console.log(this.model.CreatedDate)
    }
 
    
