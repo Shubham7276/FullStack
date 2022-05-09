@@ -1,0 +1,83 @@
+
+
+<button mat-raised-button color="primary" class="btn1" mat-button (click)="openDialog()">Open dialog</button>
+
+
+
+  
+<div class="filter"><mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. FirstName" #input>
+  </mat-form-field>
+</div>
+
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+        <td mat-cell *matCellDef="let row let i=index"> {{(i+1)+ (paginator.pageIndex*paginator.pageSize)}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Uname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.Uname}} </td>
+      </ng-container>
+  
+  
+      <!-- Description Column -->
+      <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let row"> {{row.desc}} </td>
+      </ng-container>
+  
+      <!-- Created Date Column -->
+      <ng-container matColumnDef="CreatedDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
+        <td mat-cell *matCellDef="let row"> {{row.CreatedDate}} </td>
+      </ng-container>
+
+      <!-- Update Date Column -->
+      <ng-container matColumnDef="UpdateDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Updated At </th>
+        <td mat-cell *matCellDef="let row"> {{row.UpdateDate}} </td>
+      </ng-container>
+
+      <!-- Delete Date Column -->
+      <ng-container matColumnDef="DeleteDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Deleted At </th>
+        <td mat-cell *matCellDef="let row"> {{row.DeleteDate}} </td>
+      </ng-container>
+
+      <!-- Edit Btn Column -->
+      <ng-container matColumnDef="Editbtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+        <td mat-cell *matCellDef="let row"> <button color="primary" mat-raised-button disabled="{{email===row.Email && row.isDelete===false?false:true}}" (click)="editTicket(row)">Edit</button> </td>
+      </ng-container>
+
+      <!-- Delete Btn Column -->
+      <ng-container matColumnDef="Deletebtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+        <td mat-cell *matCellDef="let row"><button color="warn" mat-raised-button disabled="{{email===row.Email && row.isDelete===false?false:true}}" (click)="deleteTicket(row._id)" >Delete</button> </td>
+      </ng-container>
+      
+      <!-- <mat-icon color="warn">delete</mat-icon> -->
+      <!-- <mat-icon color="primary" (click)="editTicket(row)">edit</mat-icon> -->
+      
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight':row.isDelete===true}"></tr>
+
+      
+   
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
