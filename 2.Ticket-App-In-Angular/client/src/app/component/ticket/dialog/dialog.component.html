@@ -1,0 +1,41 @@
+
+<h1 style="text-align: center;" mat-dialog-title>Add Ticket</h1>
+<hr/>
+  <!-- <form > -->
+    <mat-form-field appearance="outline">
+      <mat-label>User Name</mat-label>
+      <input  matInput 
+        name="name" 
+        disabled
+        [(ngModel)]="model.Uname"
+      >
+  
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput 
+        disabled
+        [(ngModel)]="model.CreatedDate"
+      >
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Discription</mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="4"
+                cdkAutosizeMaxRows="5"
+               
+                [(ngModel)]="model.desc"
+                ></textarea>
+                <mat-hint>50/100</mat-hint>
+                
+    </mat-form-field>
+  <!-- </form> -->
+
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button  mat-dialog-close>Close</button>
+    <button style="margin-left: 10px;" mat-raised-button  color="primary" (click)="onTicketSubmit()">Submit</button>
+  </div>

@@ -1,0 +1,34 @@
+table{
+    width: 100%;
+}
+
+.highlight{
+    background: #C8E3D4;
+}
+
+th{
+   
+    font-size: large;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+    background-color: #A4EBF3;
+}
+
+.btn1{
+    width: 20%;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 600px;
+    // align-items: center;
+    // background: #2ecf49;
+    
+}
+
+.filter{
+   text-align: center;
+   width: 100%;
+}
+mat-form-field{
+    width: 40%;
+}
