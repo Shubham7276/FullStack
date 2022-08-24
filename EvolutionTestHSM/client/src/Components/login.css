@@ -1,0 +1,49 @@
+.Doctor_login{
+   
+    
+    display: flex;
+}
+
+.errorMsg{
+ color: red;
+}
+.error_msg {
+	width: 540px;
+	padding: 15px;
+	margin: 5px 0;
+	font-size: 14px;
+	background-color: #f34646;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.buttons{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  
+}
+
+
+.btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }
